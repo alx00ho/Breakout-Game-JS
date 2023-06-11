@@ -7,7 +7,7 @@ let y = canvas.height - 30;
 
 // Ball Speed
 let ballSpeed = 5;
-let dx = Math.random() > 0.5 ? ballSpeed / 2 : -ballSpeed / 2;
+let dx = Math.random() > 0.5 ? ballSpeed / 3 : -ballSpeed / 3;
 let dy = -ballSpeed;
 
 const ballRadius = 10;
@@ -51,7 +51,7 @@ for (let c = 0; c < brickColumnCount; c++) {
 function drawBall() {
   ctx.beginPath();
   ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-  ctx.fillStyle = "#0095DD";
+  ctx.fillStyle = "#231919";
   ctx.fill();
   ctx.closePath();
 }
@@ -101,7 +101,7 @@ function draw() {
   }
   if (y + dy < ballRadius) {
     dy = -dy;
-  } else if (y + dy > canvas.height - ballRadius) {
+  } else if (y + dy > canvas.height - paddleHeight - ballRadius) {
     if (x > paddleX && x < paddleX + paddleWidth) {
       dy = -dy;
     } else {
@@ -112,7 +112,7 @@ function draw() {
       } else {
         x = canvas.width / 2;
         y = canvas.height - 30;
-        dx = ballSpeed / 2;
+        dx = ballSpeed / 3;
         dy = -ballSpeed;
         paddleX = (canvas.width - paddleWidth) / 2;
         play = false;
