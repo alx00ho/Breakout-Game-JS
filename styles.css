@@ -20,9 +20,11 @@
 
 #cover {
   display: none;
-  padding: 1rem;
+  padding-top: 6rem;
   color: var(--primary-color);
   text-align: center;
+  width: 480px;
+  height: 320px;
 }
 
 #breakout {
