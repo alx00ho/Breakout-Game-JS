@@ -15,6 +15,7 @@ const ballRadius = 10;
 // Paddle Dimensions
 const paddleHeight = 10;
 const paddleWidth = 75;
+const paddlePadding = 10;
 
 let paddleX = (canvas.width - paddleWidth) / 2;
 
@@ -60,7 +61,7 @@ function drawPaddle() {
   ctx.beginPath();
   ctx.rect(
     paddleX,
-    canvas.height - paddleHeight - 10,
+    canvas.height - paddleHeight - paddlePadding,
     paddleWidth,
     paddleHeight
   );
@@ -101,7 +102,10 @@ function draw() {
   }
   if (y + dy < ballRadius) {
     dy = -dy;
-  } else if (y + dy > canvas.height - paddleHeight - ballRadius) {
+  } else if (
+    y + dy >
+    canvas.height - paddlePadding - paddleHeight - ballRadius
+  ) {
     if (x > paddleX && x < paddleX + paddleWidth) {
       dy = -dy;
     } else {
@@ -173,10 +177,10 @@ function collisionDetection() {
       const b = bricks[c][r];
       if (b.status === 1) {
         if (
-          x > b.x &&
-          x < b.x + brickWidth &&
-          y > b.y &&
-          y < b.y + brickHeight
+          x > b.x - ballRadius &&
+          x < b.x + brickWidth + ballRadius &&
+          y > b.y - ballRadius &&
+          y < b.y + brickHeight + ballRadius
         ) {
           dy = -dy;
           b.status = 0;
