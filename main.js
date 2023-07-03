@@ -1,16 +1,19 @@
 const canvas = document.getElementById("breakout");
 const ctx = canvas.getContext("2d");
 
+// Initial State
+const ballInitHeight = canvas.height - 25;
+
 // Playable Area
 let x = canvas.width / 2;
-let y = canvas.height - 30;
+let y = ballInitHeight;
 
 // Ball Speed
 let ballSpeed = 5;
 let dx = Math.random() > 0.5 ? ballSpeed / 3 : -ballSpeed / 3;
 let dy = -ballSpeed;
 
-const ballRadius = 10;
+const ballRadius = 5;
 
 // Paddle Dimensions
 const paddleHeight = 10;
@@ -115,7 +118,7 @@ function draw() {
         document.location.reload();
       } else {
         x = canvas.width / 2;
-        y = canvas.height - 30;
+        y = ballInitHeight;
         dx = ballSpeed / 3;
         dy = -ballSpeed;
         paddleX = (canvas.width - paddleWidth) / 2;
