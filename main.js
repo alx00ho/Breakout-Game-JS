@@ -9,7 +9,7 @@ let x = canvas.width / 2;
 let y = ballInitHeight;
 
 // Ball Speed
-let ballSpeed = 5;
+let ballSpeed = 3;
 let dx = Math.random() > 0.5 ? ballSpeed / 3 : -ballSpeed / 3;
 let dy = -ballSpeed;
 
